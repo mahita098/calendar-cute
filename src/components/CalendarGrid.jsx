@@ -8,7 +8,6 @@ export default function CalendarGrid({
   onDrop,
   onAddEvent,
   onEventClick,
-  onDragStart,
 }) {
   const renderCalendar = () => {
     const year = currentDate.getFullYear();
@@ -18,7 +17,7 @@ export default function CalendarGrid({
 
     const days = [];
 
-    // Add empty cells for days before the first day of the month
+    // empty cells for the days avan the first day the month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(
         <div
@@ -28,7 +27,7 @@ export default function CalendarGrid({
       );
     }
 
-    // Add days of the month
+    // month days
     for (let day = 1; day <= daysInMonth; day++) {
       const dayEvents = events.filter(
         (event) =>

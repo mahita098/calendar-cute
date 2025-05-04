@@ -43,7 +43,7 @@ export default function EventList({ events, onEventClick, onDragStart }) {
         ))
       ) : (
         <div className="p-8 text-center text-gray-500">
-          No events found. Add some to get started!
+          No events found. Add Events!
         </div>
       )}
     </div>
