@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import CalendarHeader from "./CalendarHeader.jsx";
+import MobileCalendarHeader from "./MobileCalenderHeader.jsx";
 import CalendarGrid from "./CalendarGrid.jsx";
 import EventList from "./EventList.jsx";
 import EventModal from "./EventModal.jsx";
@@ -208,6 +209,14 @@ export default function Calendar() {
           onFieldChange={handleFieldChange}
         />
       )}
+      <div className=" block md:hidden">
+        <MobileCalendarHeader sortBy={sortBy} onSortChange={setSortBy} />
+        <EventList
+          events={sortedEvents}
+          onEventClick={handleEventClick}
+          onDragStart={handleDragStart}
+        />
+      </div>
     </div>
   );
 }

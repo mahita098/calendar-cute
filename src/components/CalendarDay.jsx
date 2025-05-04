@@ -14,7 +14,9 @@ export default function CalendarDay({
   return (
     <div
       className={`h-24 p-1 border rounded-lg transition-all ${
-        isToday ? "bg-blue-50 border-blue-300" : "bg-white border-gray-200"
+        isToday
+          ? "bg-blue-50 border-blue-300"
+          : "bg-white text-gray-400 border-gray-200"
       } hover:bg-gray-50`}
       onDragOver={onDragOver}
       onDrop={() => onDrop(day)}
@@ -27,7 +29,7 @@ export default function CalendarDay({
         </span>
         <button
           onClick={() => onAddEvent(day)}
-          className="text-gray-400 hover:text-gray-600 text-xs"
+          className="text-gray-400 hover:text-gray-600 text-xs cursor-pointer"
         >
           +
         </button>
