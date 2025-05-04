@@ -1,13 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import CalendarHeader from "./CalendarHeader.jsx";
 import CalendarGrid from "./CalendarGrid.jsx";
+import EventList from "./EventList.jsx";
+import EventModal from "./EventModal.jsx";
+import { loadTempEvents } from "./tempData.jsx";
 
-const CuteCalendar = () => {
+export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState("calendar");
   const [sortBy, setSortBy] = useState("date");
-  const [events, setEvents] = useState({});
+  const [events, setEvents] = useState([]);
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [newEvent, setNewEvent] = useState({
@@ -17,8 +20,9 @@ const CuteCalendar = () => {
     priority: "Medium",
     colorClass: "bg-purple-200 border-purple-400 text-purple-800",
   });
+  const [draggingEvent, setDraggingEvent] = useState(null);
 
-  //  to previous month
+  //   //  to previous month
 
   const prevMonth = () => {
     setCurrentDate((prev) => {
@@ -28,7 +32,7 @@ const CuteCalendar = () => {
     });
   };
 
-  //  to next month
+  //   //  to next month
   const nextMonth = () => {
     setCurrentDate((prev) => {
       const newDate = new Date(prev);
@@ -37,13 +41,13 @@ const CuteCalendar = () => {
     });
   };
 
-  // click events
+  //   // click events
   const handleEventClick = (event) => {
     setSelectedEvent(event);
     setShowEventModal(true);
   };
 
-  // add new events
+  //   // add new events
   const handleAddEventClick = (day) => {
     if (day) {
       const newDate = new Date(currentDate);
@@ -54,7 +58,7 @@ const CuteCalendar = () => {
     setShowEventModal(true);
   };
 
-  // new event - to submit
+  //   // new event - to submit
   const handleNewEventSubmit = () => {
     if (newEvent.title.trim() === "") return;
 
@@ -74,7 +78,7 @@ const CuteCalendar = () => {
     });
   };
 
-  // update events
+  //   // update events
   const handleEventUpdate = () => {
     if (!selectedEvent) return;
 
@@ -90,7 +94,7 @@ const CuteCalendar = () => {
     setSelectedEvent(null);
   };
 
-  //delete event
+  //   //delete event
   const handleEventDelete = () => {
     if (!selectedEvent) return;
 
@@ -102,7 +106,7 @@ const CuteCalendar = () => {
     setSelectedEvent(null);
   };
 
-  // Handle field change in modal
+  //   // Handling field change in modal
   const handleFieldChange = (field, value) => {
     if (selectedEvent) {
       setSelectedEvent({ ...selectedEvent, [field]: value });
@@ -121,6 +125,42 @@ const CuteCalendar = () => {
     return 0;
   });
 
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const eventData = await loadTempEvents();
+      setEvents(eventData);
+    };
+
+    fetchEvents();
+  }, []);
+
+  //   // drag start
+  const handleDragStart = (event) => {
+    setDraggingEvent(event);
+  };
+
+  //   // drag over
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  //   // drop on a calendar day
+  const handleDrop = (day) => {
+    if (!draggingEvent) return;
+
+    const updatedEvents = events.map((event) => {
+      if (event.id === draggingEvent.id) {
+        const newDate = new Date(currentDate);
+        newDate.setDate(day);
+        return { ...event, date: newDate };
+      }
+      return event;
+    });
+
+    setEvents(updatedEvents);
+    setDraggingEvent(null);
+  };
+
   return (
     <div className="font-sans max-w-6xl mx-auto p-4">
       <CalendarHeader
@@ -131,6 +171,7 @@ const CuteCalendar = () => {
         onViewChange={setView}
         sortBy={sortBy}
         onSortChange={setSortBy}
+        onAddEvent={() => handleAddEventClick()}
       />
 
       {view === "calendar" && (
@@ -139,6 +180,9 @@ const CuteCalendar = () => {
           events={events}
           onAddEvent={handleAddEventClick}
           onEventClick={handleEventClick}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+          onDragStart={handleDragStart}
         />
       )}
 
@@ -149,8 +193,21 @@ const CuteCalendar = () => {
           onDragStart={handleDragStart}
         />
       )}
+
+      {showEventModal && (
+        <EventModal
+          isEditing={!!selectedEvent}
+          eventToEdit={selectedEvent || newEvent}
+          onClose={() => {
+            setShowEventModal(false);
+            setSelectedEvent(null);
+          }}
+          onUpdate={handleEventUpdate}
+          onAdd={handleNewEventSubmit}
+          onDelete={handleEventDelete}
+          onFieldChange={handleFieldChange}
+        />
+      )}
     </div>
   );
-};
-
-export default CuteCalendar;
+}

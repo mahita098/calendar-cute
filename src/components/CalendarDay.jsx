@@ -1,72 +1,53 @@
-import { getDaysInMonth, getFirstDayOfMonth } from "./utils";
+import { AlertCircle } from "lucide-react";
+import EventItem from "./EventItem.jsx";
 
-export default function CalendarGrid({
-  currentDate,
+export default function CalendarDay({
+  day,
+  isToday,
   events,
+  onDragOver,
+  onDrop,
   onAddEvent,
   onEventClick,
+  onDragStart,
 }) {
-  const renderCalendar = () => {
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const daysInMonth = getDaysInMonth(year, month);
-    const firstDayOfMonth = getFirstDayOfMonth(year, month);
-
-    const days = [];
-
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push(
-        <div
-          key={`empty-${i}`}
-          className="bg-gray-50 h-24 rounded-lg border border-gray-100"
-        ></div>
-      );
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dayEvents = events.filter(
-        (event) =>
-          event.date.getDate() === day &&
-          event.date.getMonth() === month &&
-          event.date.getFullYear() === year
-      );
-
-      const isToday =
-        new Date().getDate() === day &&
-        new Date().getMonth() === month &&
-        new Date().getFullYear() === year;
-
-      days.push(
-        <CalendarDay
-          key={`day-${day}`}
-          day={day}
-          isToday={isToday}
-          events={dayEvents}
-          onDragOver={onDragOver}
-          onDrop={onDrop}
-          onAddEvent={onAddEvent}
-          onEventClick={onEventClick}
-          onDragStart={onDragStart}
-        />
-      );
-    }
-
-    return days;
-  };
-
   return (
-    <div className="mb-6">
-      <div className="grid grid-cols-7 gap-1 mb-1">
-        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-          <div
-            key={day}
-            className="text-center font-semibold text-gray-500 text-sm py-2"
-          >
-            {day}
-          </div>
-        ))}
+    <div
+      className={`h-24 p-1 border rounded-lg transition-all ${
+        isToday ? "bg-blue-50 border-blue-300" : "bg-white border-gray-200"
+      } hover:bg-gray-50`}
+      onDragOver={onDragOver}
+      onDrop={() => onDrop(day)}
+    >
+      <div className="flex justify-between items-center mb-1">
+        <span
+          className={`text-sm font-semibold ${isToday ? "text-blue-600" : ""}`}
+        >
+          {day}
+        </span>
+        <button
+          onClick={() => onAddEvent(day)}
+          className="text-gray-400 hover:text-gray-600 text-xs"
+        >
+          +
+        </button>
       </div>
-      <div className="grid grid-cols-7 gap-1">{renderCalendar()}</div>
+      <div className="overflow-y-auto max-h-16">
+        {events.slice(0, 2).map((event) => (
+          <EventItem
+            key={event.id}
+            event={event}
+            onClick={onEventClick}
+            onDragStart={onDragStart}
+          />
+        ))}
+        {events.length > 2 && (
+          <div className="text-xs text-gray-500 flex items-center">
+            <AlertCircle className="w-3 h-3 mr-1" />
+            {events.length - 2} more
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ export default function CalendarHeader({
   onViewChange,
   sortBy,
   onSortChange,
+  onAddEvent,
 }) {
   const monthName = currentDate.toLocaleDateString("en-US", { month: "long" });
 
@@ -16,7 +17,7 @@ export default function CalendarHeader({
     <>
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-purple-600 mb-2">
-          Cute Calendar
+          Mahita's Cute Calendar
         </h1>
         <p className="text-gray-600">Your adorable event planner</p>
       </div>

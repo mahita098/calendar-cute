@@ -1,5 +1,5 @@
 import CalendarDay from "./CalendarDay.jsx";
-import { getDaysInMonth, getFirstDayOfMonth } from "./utils";
+import { getDaysInMonth, getFirstDayOfMonth } from "./utils.jsx";
 
 export default function CalendarGrid({
   currentDate,
@@ -8,6 +8,7 @@ export default function CalendarGrid({
   onDrop,
   onAddEvent,
   onEventClick,
+  onDragStart,
 }) {
   const renderCalendar = () => {
     const year = currentDate.getFullYear();

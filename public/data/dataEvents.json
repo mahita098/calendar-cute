@@ -1,16 +1,16 @@
 [
   {
     "id": "event-1",
-    "title": "Team Meeting",
-    "description": "Weekly team sync with product managers",
-    "dateStr": "2025-05-05",
+    "title": "Airport",
+    "description": "Mahima japan trip starts",
+    "dateStr": "2025-05-21",
     "priority": "High",
     "colorClass": "bg-blue-200 border-blue-400 text-blue-800"
   },
   {
     "id": "event-2",
     "title": "Project Deadline",
-    "description": "Submit final project deliverables",
+    "description": "Submit final project",
     "dateStr": "2025-05-15",
     "priority": "High",
     "colorClass": "bg-red-200 border-red-400 text-red-800"
@@ -26,7 +26,7 @@
   {
     "id": "event-4",
     "title": "Birthday Party",
-    "description": "Sarah's birthday celebration",
+    "description": "Mahita birthday celebration",
     "dateStr": "2025-05-12",
     "priority": "Medium",
     "colorClass": "bg-pink-200 border-pink-400 text-pink-800"
@@ -38,61 +38,5 @@
     "dateStr": "2025-05-07",
     "priority": "Low",
     "colorClass": "bg-green-200 border-green-400 text-green-800"
-  },
-  {
-    "id": "event-6",
-    "title": "Coffee Chat",
-    "description": "Networking with design team",
-    "dateStr": "2025-05-09",
-    "priority": "Low",
-    "colorClass": "bg-yellow-200 border-yellow-400 text-yellow-800"
-  },
-  {
-    "id": "event-7",
-    "title": "Code Review",
-    "description": "Review pull requests for new feature",
-    "dateStr": "2025-05-06",
-    "priority": "High",
-    "colorClass": "bg-blue-200 border-blue-400 text-blue-800"
-  },
-  {
-    "id": "event-8",
-    "title": "Client Meeting",
-    "description": "Presentation of project progress",
-    "dateStr": "2025-05-11",
-    "priority": "High",
-    "colorClass": "bg-purple-200 border-purple-400 text-purple-800"
-  },
-  {
-    "id": "event-9",
-    "title": "Lunch with Team",
-    "description": "Team building lunch outing",
-    "dateStr": "2025-05-14",
-    "priority": "Medium",
-    "colorClass": "bg-green-200 border-green-400 text-green-800"
-  },
-  {
-    "id": "event-10",
-    "title": "Dentist",
-    "description": "Regular cleaning appointment",
-    "dateStr": "2025-05-19",
-    "priority": "Medium",
-    "colorClass": "bg-pink-200 border-pink-400 text-pink-800"
-  },
-  {
-    "id": "event-11",
-    "title": "Conference Call",
-    "description": "International partners sync",
-    "dateStr": "2025-05-21",
-    "priority": "High",
-    "colorClass": "bg-blue-200 border-blue-400 text-blue-800"
-  },
-  {
-    "id": "event-12",
-    "title": "Vacation Start",
-    "description": "Beginning of summer vacation",
-    "dateStr": "2025-05-25",
-    "priority": "Low",
-    "colorClass": "bg-yellow-200 border-yellow-400 text-yellow-800"
   }
 ]
