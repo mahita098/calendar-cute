@@ -16,8 +16,9 @@ export default function CalendarHeader({
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-purple-600 mb-2">
+        <h1 className="text-3xl font-bold text-purple-600 mb-2 flex items-center ">
           Mahita's Cute Calendar
+          <img className="w-12 " src="../images/calendar1.gif" alt="" />
         </h1>
         <p className="text-gray-600">Crafted with love.</p>
       </div>
@@ -68,7 +69,7 @@ export default function CalendarHeader({
 
             {view === "list" && (
               <select
-                className="bg-white border border-gray-300 text-gray-400 rounded-md px-3 py-1 "
+                className="bg-white border border-gray-300 text-gray-400 rounded-md px-3 py-1 cursor-pointer"
                 value={sortBy}
                 onChange={(e) => onSortChange(e.target.value)}
               >

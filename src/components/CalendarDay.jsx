@@ -29,7 +29,7 @@ export default function CalendarDay({
         </span>
         <button
           onClick={() => onAddEvent(day)}
-          className="text-purple-400 hover:text-white text-sm px-1 rounded cursor-pointer bg-purple-100 hover:bg-purple-600"
+          className="text-purple-400 hover:text-white text-sm px-1 rounded cursor-pointer bg-purple-50 hover:bg-purple-400"
         >
           +
         </button>

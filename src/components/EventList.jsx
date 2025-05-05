@@ -7,7 +7,7 @@ export default function EventList({ events, onEventClick, onDragStart }) {
         events.map((event) => (
           <div
             key={event.id}
-            className="flex flex-col sm:flex-row sm:items-center border-b border-gray-200 p-4 hover:bg-gray-50 cursor-pointer"
+            className="flex flex-col sm:flex-row sm:items-center border-b border-gray-200 p-4 hover:bg-purple-50 cursor-pointer"
             onClick={() => onEventClick(event)}
             draggable
             onDragStart={() => onDragStart(event)}
@@ -19,7 +19,11 @@ export default function EventList({ events, onEventClick, onDragStart }) {
                     event.colorClass.split(" ")[0]
                   }`}
                 ></div>
-                <h3 className="font-semibold">{event.title}</h3>
+                <h3
+                  className={` bg-transparent font-semibold ${event.colorClass}`}
+                >
+                  {event.title}
+                </h3>
               </div>
               <p className="text-sm text-gray-600">{event.description}</p>
             </div>
