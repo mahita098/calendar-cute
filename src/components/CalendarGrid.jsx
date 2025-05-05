@@ -61,7 +61,7 @@ export default function CalendarGrid({
   };
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 border-4 border-purple-200 p-4 py-6 rounded-2xl">
       <div className="grid grid-cols-7 gap-1 mb-1">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
           <div

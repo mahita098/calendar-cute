@@ -16,21 +16,21 @@ export default function CalendarHeader({
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-purple-600 mb-2 flex items-center ">
+        <h1 className="text-2xl md:text-3xl font-bold text-purple-600 mb-2 flex items-center justify-between md:justify-start ">
           Mahita's Cute Calendar
-          <img className="w-12 " src="../images/calendar1.gif" alt="" />
+          <img className="w-12 ml-1.5" src="../images/calendar1.gif" alt="" />
         </h1>
         <p className="text-gray-600">Crafted with love.</p>
       </div>
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-        <div className="flex items-center">
+        <div className="flex items-center bg-purple-100 rounded-lg p-1">
           <button
             onClick={onPrevMonth}
             className="p-2 rounded-full hover:bg-gray-100"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600 cursor-pointer" />
           </button>
-          <h2 className="text-xl font-semibold mx-4 text-purple-600">
+          <h2 className="text-md font-semibold mx-4 text-purple-600">
             {monthName} {currentDate.getFullYear()}
           </h2>
           <button
@@ -42,7 +42,7 @@ export default function CalendarHeader({
         </div>
         <div className="flex mb-3">
           <div className="hidden md:flex gap-4 ">
-            <div className="flex bg-gray-100 rounded-lg p-1">
+            <div className="flex bg-purple-100 rounded-lg p-1">
               <button
                 className={`px-3 py-1 rounded-md flex items-center cursor-pointer ${
                   view === "calendar"
@@ -63,7 +63,7 @@ export default function CalendarHeader({
                 onClick={() => onViewChange("list")}
               >
                 <List className="w-4 h-4 mr-1" />
-                List
+                Events List
               </button>
             </div>
 

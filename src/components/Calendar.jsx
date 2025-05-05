@@ -163,7 +163,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="font-sans max-w-6xl mx-auto p-4">
+    <div className="font-sans max-w-7xl mx-auto p-4">
       <CalendarHeader
         onPrevMonth={prevMonth}
         onNextMonth={nextMonth}

@@ -32,7 +32,7 @@ export default function EventList({ events, onEventClick, onDragStart }) {
                 {formatDate(event.date)}
               </div>
               <div
-                className={`text-xs px-2 py-1 rounded-full mt-1 ${
+                className={`text-xs px-2 py-1 rounded-full mt-1 w-fit ${
                   event.priority === "High"
                     ? "bg-red-100 text-red-800"
                     : event.priority === "Medium"
