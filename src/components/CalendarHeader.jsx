@@ -29,7 +29,7 @@ export default function CalendarHeader({
           >
             <ChevronLeft className="w-5 h-5 text-gray-600 cursor-pointer" />
           </button>
-          <h2 className="text-xl font-semibold mx-4 text-purple-300">
+          <h2 className="text-xl font-semibold mx-4 text-purple-600">
             {monthName} {currentDate.getFullYear()}
           </h2>
           <button
