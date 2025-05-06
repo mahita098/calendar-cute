@@ -1,40 +1,40 @@
 [
   {
     "id": "event-1",
-    "title": "Airport",
+    "title": "Drop Mahima Airport",
     "description": "Mahima japan trip starts",
-    "dateStr": "2025-05-21",
+    "dateStr": "2025-04-21",
     "priority": "High",
     "colorClass": "bg-blue-200 border-blue-400 text-blue-800"
   },
   {
     "id": "event-2",
-    "title": "Project Deadline",
+    "title": "Nullpod Calendar deadline",
     "description": "Submit final project",
-    "dateStr": "2025-05-15",
+    "dateStr": "2025-05-8",
     "priority": "High",
     "colorClass": "bg-red-200 border-red-400 text-red-800"
   },
   {
     "id": "event-3",
-    "title": "Doctor Appointment",
-    "description": "Annual checkup",
-    "dateStr": "2025-05-08",
+    "title": "Visa Application for mom",
+    "description": "Do for her and aunty as well",
+    "dateStr": "2025-05-20",
     "priority": "Medium",
     "colorClass": "bg-purple-200 border-purple-400 text-purple-800"
   },
   {
     "id": "event-4",
-    "title": "Birthday Party",
-    "description": "Mahita birthday celebration",
+    "title": "Birthday Party Teesha",
+    "description": "Teesha birthday celebration",
     "dateStr": "2025-05-12",
     "priority": "Medium",
     "colorClass": "bg-pink-200 border-pink-400 text-pink-800"
   },
   {
     "id": "event-5",
-    "title": "Gym Session",
-    "description": "Personal training",
+    "title": "Buy Cat Fleas Medications",
+    "description": "Dewormers,fleas and wound ointments",
     "dateStr": "2025-05-07",
     "priority": "Low",
     "colorClass": "bg-green-200 border-green-400 text-green-800"

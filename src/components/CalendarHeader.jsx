@@ -16,11 +16,13 @@ export default function CalendarHeader({
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-purple-600 mb-2 flex items-center justify-between md:justify-start ">
+        <h1 className="text-2xl md:text-3xl font-bold text-purple-600 mb-2 flex items-center justify-center md:justify-start ">
           Mahita's Cute Calendar
           <img className="w-12 ml-1.5" src="../images/calendar1.gif" alt="" />
         </h1>
-        <p className="text-gray-600">Crafted with love.</p>
+        <p className="text-gray-600 flex justify-center md:justify-start">
+          Planning made pretty and fun
+        </p>
       </div>
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <div className="flex items-center bg-purple-100 rounded-lg p-1">

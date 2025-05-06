@@ -8,7 +8,7 @@ export default function EventModal({
   onFieldChange,
 }) {
   return (
-    <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-50 px-10 md:px-0">
+    <div className="fixed inset-0 bg-[rgba(0,0,0,0.1)] backdrop-blur flex items-center justify-center z-50 px-10 md:px-0">
       <div className="bg-white rounded-lg p-6 w-full max-w-md">
         <h2 className="text-xl font-bold mb-4 text-black">
           {isEditing ? "Edit Event" : "Add New Event"}

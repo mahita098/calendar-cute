@@ -6,6 +6,7 @@ import CalendarGrid from "./CalendarGrid.jsx";
 import EventList from "./EventList.jsx";
 import EventModal from "./EventModal.jsx";
 import { loadTempEvents } from "./tempData.jsx";
+import Footer from "./Footer.jsx";
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -209,7 +210,7 @@ export default function Calendar() {
           onFieldChange={handleFieldChange}
         />
       )}
-      <div className=" block md:hidden">
+      <div className=" flex justify-start md:hidden ">
         <MobileCalendarHeader sortBy={sortBy} onSortChange={setSortBy} />
         <EventList
           events={sortedEvents}
@@ -217,6 +218,7 @@ export default function Calendar() {
           onDragStart={handleDragStart}
         />
       </div>
+      <Footer />
     </div>
   );
 }
