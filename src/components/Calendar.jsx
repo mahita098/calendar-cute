@@ -210,7 +210,7 @@ export default function Calendar() {
           onFieldChange={handleFieldChange}
         />
       )}
-      <div className=" flex justify-start md:hidden ">
+      <div className=" flex flex-col md:hidden ">
         <MobileCalendarHeader sortBy={sortBy} onSortChange={setSortBy} />
         <EventList
           events={sortedEvents}
